@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: base
+# Cookbook Name:: base_cloudint
 # Recipe:: default
 #
 # Copyright 2012, EC2Dream
@@ -17,9 +17,9 @@
 # limitations under the License.
 #
 
-include_recipe "base::centos" if platform?("centos")
-include_recipe "base::ubuntu" if platform?("ubuntu")
-include_recipe "base::windows" if platform?("windows")
+include_recipe "base_cloudinit::centos" if platform?("centos")
+include_recipe "base_cloudinit::ubuntu" if platform?("ubuntu")
+include_recipe "base_cloudinit::windows" if platform?("windows")
 
 
 

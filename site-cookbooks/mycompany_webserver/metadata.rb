@@ -4,6 +4,10 @@ long_description  '# mycompany_webserver chef cookbook\n\nDeploys and configures
 maintainer_email  'neillwturner@gmail.com'
 license           'Apache 2.0'
 version           '1.0.0'
-supports          'debian',  '>= 0.0.0',
+
+recipe            'mycompany_webserver::default', 'mycompany apache2 configuration'
+
+supports          'debian',  '>= 0.0.0'
 supports          'ubuntu',  '>= 0.0.0'
+
 depends           'apache2', '>= 0.0.60'
