@@ -1,6 +1,6 @@
 # DESCRIPTION
 
-Simple cookbook to install required on all users
+Simple cookbook to install software required on all servers
 
 Also demostrates how to use test kitchen.
 
@@ -16,7 +16,7 @@ none initially
 
 # USAGE
 
-in role for webserver
-include recipe mycompany_base and mycompany_webserver
+in role for each server
+include recipe mycompany_base
 ```
 
