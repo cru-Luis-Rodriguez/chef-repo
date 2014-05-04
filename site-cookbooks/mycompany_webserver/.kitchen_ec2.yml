@@ -11,12 +11,12 @@ driver:
     flavor_id: t1.micro
     require_chef_omnibus: true
     subnet_id: subnet-xxxxxxx
- 
-  
+
+
 provisioner:
   name: chef_solo
-  
-  
+
+
 platforms:
   - name: ubuntu-12.04
     driver:
@@ -29,6 +29,6 @@ platforms:
 
 suites:
   - name: default
-    run_list: 
-      - role[app]
+    run_list:
+      - recipe[base,mycompany_webserver]
     attributes:

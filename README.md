@@ -1,1 +1,0 @@
-chef-repo for testing cookbooks using test kitchen and jenkins

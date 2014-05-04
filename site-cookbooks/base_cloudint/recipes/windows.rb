@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: base_cloudint
+# Cookbook Name:: base
 # Recipe:: ubuntu
 #
 # Copyright 2012, EC2Dream.
@@ -17,40 +17,29 @@
 # limitations under the License.
 #
 
-# only for bundling instance store instances 
-cookbook_file "/home/ubuntu/bundle.rb" do
-  source "bundle.rb"
-  mode 0755
-  owner "ubuntu"
-  group "ubuntu"
-end
-
-cookbook_file "/home/ubuntu/cloud_init.rb" do
+cookbook_file "c:/users/administrator/cloud_init.rb" do
   source "cloud_init.rb"
-  mode 0755
-  owner "ubuntu"
-  group "ubuntu"
 end
 
-template "/home/ubuntu/settings.rb" do
-  source "settings_rb.erb"
-  mode 0755
-  owner "ubuntu"
-  group "ubuntu"
+template 'c:/users/administrator/settings.rb' do
+  source 'settings_rb.erb'
 end
 
-
-# uncomment to run cloud_int at startup
-#cookbook_file "/etc/rc.local" do
-#  source "rc.local"
-#  mode 0755
-#  owner "root"
-#  group "root"
-#end   
+template 'c:/users/administrator/create_sched_task.cmd' do
+  source 'create_sched_task_cmd.erb'
+end
 
 gem_package "right_aws" do
   action :install
 end
+
+# create a scheduled the task
+execute "create scheduled task to run cloud_init at startup" do
+  command 'c:/users/administrator/create_sched_task.cmd'
+end  
+
+
+
 
 
 

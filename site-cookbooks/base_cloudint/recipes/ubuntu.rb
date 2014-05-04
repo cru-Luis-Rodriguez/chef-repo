@@ -1,6 +1,6 @@
 #
-# Cookbook Name:: base_cloudint
-# Recipe:: centos
+# Cookbook Name:: base
+# Recipe:: ubuntu
 #
 # Copyright 2012, EC2Dream.
 #
@@ -18,36 +18,41 @@
 #
 
 # only for bundling instance store instances 
-cookbook_file "/root/bundle.rb" do
+cookbook_file "/home/ubuntu/bundle.rb" do
   source "bundle.rb"
   mode 0755
-  owner "root"
-  group "root"
+  owner "ubuntu"
+  group "ubuntu"
 end
-cookbook_file "/root/cloud_init.rb" do
+
+cookbook_file "/home/ubuntu/cloud_init.rb" do
   source "cloud_init.rb"
   mode 0755
-  owner "root"
-  group "root"
+  owner "ubuntu"
+  group "ubuntu"
 end
 
-template "/root/settings.rb" do
+template "/home/ubuntu/settings.rb" do
   source "settings_rb.erb"
   mode 0755
-  owner "root"
-  group "root"
+  owner "ubuntu"
+  group "ubuntu"
 end
 
+
 # uncomment to run cloud_int at startup
-#cookbook_file "/etc/rc.d/rc.local" do
-#   source "rc.local"
-#   mode 0755
-#   owner "root"
-#   group "root"
-#end
+#cookbook_file "/etc/rc.local" do
+#  source "rc.local"
+#  mode 0755
+#  owner "root"
+#  group "root"
+#end   
 
 gem_package "right_aws" do
   action :install
 end
+
+
+
 
 
